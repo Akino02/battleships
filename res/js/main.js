@@ -62,17 +62,23 @@ function randomnumbot() {
   }
 }
 function botplay() {
-  randomshot = Math.floor(Math.random() * 23 + 0);
-  console.log(randomshot);
+  randomshot = Math.floor(Math.random() * 25 + 0);
+  console.log(randomshot + "tady je to");
+  if (randomshot > 23){
+    randomshot = 23;
+  }
   if (fieldp[randomshot].value == 1) {
     fieldp[randomshot].style.background = pboatd;
     hite++;
     fieldp[randomshot].value = 2;
+    console.log("trefa do terče")
   } else if (fieldp[randomshot].value == 0 || fieldp[randomshot].value == 2) {
     botplay();
+    console.log("chyba výpočtu")
   } else {
     fieldp[randomshot].style.background = miss;
     fieldp[randomshot].value = 0;
+    console.log("trefa ale byl to miss")
   }
   if (turn <= 0) {
     turn++;
@@ -103,6 +109,7 @@ reset.onclick = () => {
       fieldp[i].value = 0;
       fieldp[i].style.background = "white";
     }
+    alert("successful delete");
   }
 };
 start.onclick = () => {
@@ -112,7 +119,7 @@ start.onclick = () => {
     reset.style.display = "none";
     randomnumbot();
     turn++;
-  } else if (boats != 4) {
+  } else if (boats != 0) {
     alert("Place 4 boats");
   }
 };
