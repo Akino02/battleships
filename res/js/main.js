@@ -25,7 +25,7 @@ let pboatd = "orange";
 let eboatd = "red";
 let miss = "grey";
 
-let chcechendgameend = setInterval(chechendgame, 2000);
+let chcechendgameend = setInterval(chechendgame, 100);
 
 function chechendgame() {
   if (hitp == 4 || hite == 4) {
@@ -43,22 +43,21 @@ function chechendgame() {
 }
 function randomnumbot() {
   for (let i = 0; i < 4; i++) {
-    checherror = 0;
+    //checherror = 0;
     randomnumsbot = Math.floor(Math.random() * 23 + 0);
     randomnumsbot = Math.round(randomnumsbot);
     if (botboats[0] >= 0) {
       for (let y = 0; y < botboats.length; y++) {
         if (randomnumsbot == botboats[y]) {
           randomnumbot();
-          checherror++;
+          //checherror++;
+          return
         }
       }
     }
-    if (checherror == 0) {
-      botboats[i] = randomnumsbot;
-      fielde[randomnumsbot].value = 1;
-      //console.log(randomnumsbot);
-    }
+    botboats[i] = randomnumsbot;
+    fielde[randomnumsbot].value = 1;
+    //console.log(randomnumsbot);
   }
 }
 function botplay() {
@@ -93,7 +92,10 @@ startgame.onclick = () => {
 [...fieldp].forEach((blockp) => {
   blockp.onclick = () => {
     if (gamestarted == 0) {
-      if (blockp.style.background == pboat) {
+      if (blockp.style.background == pboat && blockp.value == 1) {
+        blockp.style.background = "white";
+        blockp.value = 0;
+        boats++;
       } else if (boats > 0) {
         blockp.style.background = pboat;
         blockp.value = 1;
@@ -102,7 +104,7 @@ startgame.onclick = () => {
     }
   };
 });
-reset.onclick = () => {
+/*reset.onclick = () => {
   if (gamestarted == 0) {
     boats = 4;
     for (let i = 0; i < 24; i++) {
@@ -111,12 +113,12 @@ reset.onclick = () => {
     }
     alert("successful delete");
   }
-};
+};*/
 start.onclick = () => {
   if (boats == 0) {
     gamestarted++;
     start.style.display = "none";
-    reset.style.display = "none";
+    //reset.style.display = "none";
     randomnumbot();
     turn++;
   } else if (boats != 0) {
