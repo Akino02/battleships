@@ -43,8 +43,8 @@
 #containerplayer, #containerbot{
     display: flex;
     flex-wrap: wrap;
-    width: 612px;
-    height: 200px;
+    width: auto;
+    height: auto;
 }
 #containerplayer{
     margin-left: 150px;
@@ -70,4 +70,39 @@
     padding: 15px;
     cursor:pointer;
     margin-left: 15px;
+}
+
+/*responsive*/
+@media only screen and (max-width: 1600px){
+    .field, .fielde{
+        width: 50px;
+        height: 50px;
+    }
+    #containerplayer, #containerbot{
+        width: 306px;
+        height: 100px;
+    }
+    #containerplayer{
+        margin-left: 75px;
+    }
+    #containerbot{
+        margin-right: 75px;
+    }
+}
+
+@media only screen and (max-width: 775px){
+    .field, .fielde{
+        width: 25px;
+        height: 25px;
+    }
+    #containerplayer, #containerbot{
+        width: 153px;
+        height: 50px;
+    }
+    #containerplayer{
+        margin-left: 35px;
+    }
+    #containerbot{
+        margin-right: 35px;
+    }
 }
