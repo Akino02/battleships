@@ -32,7 +32,7 @@
     width: 100%;
     margin-top: 300px;
     display: none;
-    justify-content: space-between;
+    justify-content: center;
     flex-wrap: wrap;
 }
 .titlep, .titlee{
@@ -43,15 +43,15 @@
 #containerplayer, #containerbot{
     display: flex;
     flex-wrap: wrap;
-    width: auto;
-    height: auto;
+    width: 612px;
+    height: 200px;
 }
-#containerplayer{
+/*#containerplayer{
     margin-left: 150px;
 }
 #containerbot{
     margin-right: 150px;
-}
+}*/
 .field, .fielde{
     width: 100px;
     height: 100px;
@@ -72,37 +72,49 @@
     margin-left: 15px;
 }
 
-/*responsive*/
-@media only screen and (max-width: 1600px){
+/*Responsive*/
+@media only screen and (max-width: 1570px) {
+    .field, .fielde{
+        width: 75px;
+        height: 75px;
+    }
+}
+
+@media only screen and (max-width: 1250px) {
+    #containerplayer, #containerbot{
+        display: flex;
+        flex-wrap: wrap;
+        width: 306px;
+        height: 100px;
+    }
     .field, .fielde{
         width: 50px;
         height: 50px;
     }
-    #containerplayer, #containerbot{
-        width: 306px;
-        height: 100px;
-    }
-    #containerplayer{
-        margin-left: 75px;
-    }
-    #containerbot{
-        margin-right: 75px;
-    }
 }
 
-@media only screen and (max-width: 775px){
-    .field, .fielde{
-        width: 25px;
-        height: 25px;
-    }
+@media only screen and (max-width: 620px) {
     #containerplayer, #containerbot{
         width: 153px;
         height: 50px;
     }
-    #containerplayer{
-        margin-left: 35px;
+    .field, .fielde{
+        width: 25px;
+        height: 25px;
     }
-    #containerbot{
-        margin-right: 35px;
+    #playbutt, #ready{
+        width: 50px;
+        font-size: 13px;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    #containerplayer, #containerbot{
+        width: 100px;
+        height: 25px;
+    }
+    .field, .fielde{
+        width: 15px;
+        height: 15px;
     }
 }
